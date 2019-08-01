@@ -3,3 +3,6 @@
 ################################################################################
 
 /packages
+/AuditToolBox/bin/Debug
+/AuditToolBox/obj/x86/Debug
+/.vs
