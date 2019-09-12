@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
     <StartupObject>AuditToolBox.Program</StartupObject>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -33,16 +34,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Awesomium.Core">
-      <HintPath>..\bin\Debug\Awesomium.Core.dll</HintPath>
+    <Reference Include="Awesomium.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=e1a0d7c8071a5214, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Awesomium.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Awesomium.Windows.Forms">
-      <HintPath>..\bin\Debug\Awesomium.Windows.Forms.dll</HintPath>
+    <Reference Include="Awesomium.Windows.Forms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=9bd24830fbe304a0, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Awesomium.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.0.0.999, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.0.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.DurableInstancing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -68,6 +95,19 @@
     <Compile Include="FunctionChoose.Designer.cs">
       <DependentUpon>FunctionChoose.cs</DependentUpon>
     </Compile>
+    <Compile Include="HTTPRequest\Express\AuxiliaryItem.cs" />
+    <Compile Include="HTTPRequest\Express\Company.cs" />
+    <Compile Include="HTTPRequest\Express\CompanyEnum.cs" />
+    <Compile Include="HTTPRequest\Express\CompanyICO.cs" />
+    <Compile Include="HTTPRequest\Express\CompanyWebsite.cs" />
+    <Compile Include="HTTPRequest\Express\ContextItem.cs" />
+    <Compile Include="HTTPRequest\Express\Info.cs" />
+    <Compile Include="HTTPRequest\Express\KuaiDi.cs" />
+    <Compile Include="HTTPRequest\Express\KuaiDiData.cs" />
+    <Compile Include="HTTPRequest\Express\KuaiDiRequest.cs" />
+    <Compile Include="HTTPRequest\Express\MyWebRequest.cs" />
+    <Compile Include="HTTPRequest\Express\RequestInfo.cs" />
+    <Compile Include="HTTPRequest\Express\Source.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,19 +130,47 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="DLL\awesomium_process" />
+    <None Include="DLL\inspector.pak" />
+    <None Include="DLL\pdf_js.pak" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DLL\avcodec-53.dll" />
+    <Content Include="DLL\avformat-53.dll" />
+    <Content Include="DLL\avutil-51.dll" />
+    <Content Include="DLL\Awesomium.Core.dll" />
+    <Content Include="DLL\Awesomium.Core.xml" />
+    <Content Include="DLL\awesomium.dll" />
+    <Content Include="DLL\Awesomium.Windows.Forms.dll" />
+    <Content Include="DLL\Awesomium.Windows.Forms.xml" />
+    <Content Include="DLL\icudt.dll" />
+    <Content Include="DLL\libEGL.dll" />
+    <Content Include="DLL\libGLESv2.dll" />
+    <Content Include="DLL\xinput9_1_0.dll" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EnterpriseSearch.resx">
+      <DependentUpon>EnterpriseSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpressSearch.resx">
+      <DependentUpon>ExpressSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

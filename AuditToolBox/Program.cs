@@ -10,7 +10,11 @@ namespace AuditToolBox
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new FunctionChoose());
+            if (new Login().ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new FunctionChoose());
+            }
+            Environment.Exit(0);
 		}
 	}
 }
